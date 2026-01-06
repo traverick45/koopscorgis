@@ -28,6 +28,10 @@
         .hero-overlay {
             background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.6));
         }
+        /* Carousel Transitions */
+        .carousel-image {
+            transition: opacity 0.3s ease-in-out;
+        }
     </style>
 </head>
 <body class="text-gray-700 bg-orange-50 antialiased selection:bg-orange-200 selection:text-orange-900">
@@ -192,7 +196,7 @@
             <div class="flex flex-col md:flex-row justify-between items-end mb-12">
                 <div>
                     <h2 class="text-4xl font-bold text-gray-800">Life at Koopman Corgis</h2>
-                    <p class="text-gray-600 mt-2 text-lg">A glimpse into our furry family.</p>
+                    <p class="text-gray-600 mt-2 text-lg">Browse our photo albums.</p>
                 </div>
                 <div class="hidden md:block">
                     <a href="#contact" class="text-orange-500 font-bold hover:text-orange-600 flex items-center gap-1">
@@ -201,111 +205,73 @@
                 </div>
             </div>
 
-            <!-- Mosaic Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[200px] grid-flow-dense">
+            <!-- Albums Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 
-                <!-- 1. Large Feature (2x2) -->
-                <div class="group relative overflow-hidden rounded-2xl shadow-md cursor-pointer col-span-1 sm:col-span-2 sm:row-span-2">
-                    <img src="IMG_5661.jpeg" 
-                         alt="Corgi Life" 
-                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <!-- Album 1: Current Litter -->
+                <div onclick="openAlbum('current')" class="group relative overflow-hidden rounded-3xl shadow-lg cursor-pointer h-96 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                    <img src="IMG_5661.jpg" 
+                         alt="Current Litter Cover" 
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                        <div class="transform transition-transform duration-300 group-hover:translate-y-[-4px]">
+                            <span class="inline-block px-3 py-1 bg-orange-500 text-white text-xs font-bold uppercase tracking-wider rounded-full mb-3">New Arrivals</span>
+                            <h3 class="text-3xl font-bold text-white mb-2">Current Litter</h3>
+                            <p class="text-gray-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
+                                Meet the newest additions to our family. Click to view photos.
+                            </p>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- 2. Standard -->
-                <div class="group relative overflow-hidden rounded-2xl shadow-md cursor-pointer">
-                    <img src="IMG_5254.jpeg" 
-                         alt="Corgi Life" 
-                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                </div>
-
-                <!-- 3. Tall (1x2) -->
-                <div class="group relative overflow-hidden rounded-2xl shadow-md cursor-pointer row-span-1 sm:row-span-2">
-                    <img src="IMG_5390.jpeg" 
-                         alt="Corgi Life" 
-                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                </div>
-
-                <!-- 4. Standard -->
-                <div class="group relative overflow-hidden rounded-2xl shadow-md cursor-pointer">
-                    <img src="IMG_5247.jpeg" 
-                         alt="Corgi Life" 
-                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                </div>
-
-                <!-- 6. Standard -->
-                <div class="group relative overflow-hidden rounded-2xl shadow-md cursor-pointer">
-                    <img src="IMG_5598.jpeg" 
-                         alt="Corgi Life" 
-                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                </div>
-
-                <!-- 7. Standard -->
-                <div class="group relative overflow-hidden rounded-2xl shadow-md cursor-pointer">
-                    <img src="IMG_5432.jpeg" 
-                         alt="Corgi Life" 
-                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                </div>
-
-                <!-- 8. Standard -->
-                <div class="group relative overflow-hidden rounded-2xl shadow-md cursor-pointer">
-                    <img src="IMG_5476.jpeg" 
-                         alt="Corgi Life" 
-                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                </div>
-
-                <!-- 9. Large Feature (2x2) -->
-                <div class="group relative overflow-hidden rounded-2xl shadow-md cursor-pointer col-span-1 sm:col-span-2 sm:row-span-2">
-                    <img src="IMG_5739.jpeg" 
-                         alt="Corgi Life" 
-                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                </div>
-
-                <!-- 10. Tall (1x2) -->
-                <div class="group relative overflow-hidden rounded-2xl shadow-md cursor-pointer row-span-1 sm:row-span-2">
-                    <img src="IMG_5564.jpeg" 
-                         alt="Corgi Life" 
-                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                </div>
-
-                <!-- 11. Standard -->
-                <div class="group relative overflow-hidden rounded-2xl shadow-md cursor-pointer">
-                    <img src="IMG_5646.jpeg" 
-                         alt="Corgi Life" 
-                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                </div>
-
-                <!-- 12. Standard -->
-                <div class="group relative overflow-hidden rounded-2xl shadow-md cursor-pointer">
-                    <img src="IMG_5829.jpeg" 
-                         alt="Corgi Life" 
-                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                </div>
-
-                <!-- 13. Wide (2x1) -->
-                <div class="group relative overflow-hidden rounded-2xl shadow-md cursor-pointer col-span-1 sm:col-span-2">
-                    <img src="IMG_5731.jpeg" 
-                         alt="Corgi Life" 
-                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                </div>
-
-                <!-- 14. Standard -->
-                <div class="group relative overflow-hidden rounded-2xl shadow-md cursor-pointer">
-                    <img src="IMG_6031.jpeg" 
-                         alt="Corgi Life" 
-                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                </div>
-
-                <!-- 15. Standard -->
-                <div class="group relative overflow-hidden rounded-2xl shadow-md cursor-pointer">
-                    <img src="IMG_5842.jpeg" 
-                         alt="Corgi Life" 
-                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <!-- Album 2: Past Litters -->
+                <div onclick="openAlbum('past')" class="group relative overflow-hidden rounded-3xl shadow-lg cursor-pointer h-96 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                    <img src="IMG_5739.jpg" 
+                         alt="Past Litters Cover" 
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                         <div class="transform transition-transform duration-300 group-hover:translate-y-[-4px]">
+                            <span class="inline-block px-3 py-1 bg-gray-600 text-white text-xs font-bold uppercase tracking-wider rounded-full mb-3">Memories</span>
+                            <h3 class="text-3xl font-bold text-white mb-2">Past Litters</h3>
+                            <p class="text-gray-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
+                                Look back at our previous puppies and happy families.
+                            </p>
+                        </div>
+                    </div>
                 </div>
 
             </div>
         </div>
     </section>
+
+    <!-- Full Screen Carousel Modal -->
+    <div id="carousel-modal" class="fixed inset-0 z-[100] hidden" aria-modal="true">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black/95 backdrop-blur-sm" onclick="closeAlbum()"></div>
+        
+        <!-- Controls -->
+        <button onclick="closeAlbum()" class="absolute top-6 right-6 z-[110] text-white/70 hover:text-white transition-colors p-2">
+            <i data-lucide="x" class="w-10 h-10"></i>
+        </button>
+
+        <button onclick="prevImage()" class="absolute left-4 top-1/2 -translate-y-1/2 z-[110] text-white/50 hover:text-white transition-colors p-4 hover:bg-white/10 rounded-full group">
+            <i data-lucide="chevron-left" class="w-10 h-10 transition-transform group-hover:-translate-x-1"></i>
+        </button>
+
+        <button onclick="nextImage()" class="absolute right-4 top-1/2 -translate-y-1/2 z-[110] text-white/50 hover:text-white transition-colors p-4 hover:bg-white/10 rounded-full group">
+            <i data-lucide="chevron-right" class="w-10 h-10 transition-transform group-hover:translate-x-1"></i>
+        </button>
+
+        <!-- Image Container -->
+        <div class="absolute inset-0 z-[105] flex items-center justify-center p-4 md:p-12 pointer-events-none">
+            <img id="carousel-img" src="" alt="Gallery Image" class="max-w-full max-h-full object-contain shadow-2xl rounded-lg pointer-events-auto carousel-image">
+            
+            <!-- Counter -->
+            <div class="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/80 font-medium tracking-widest bg-black/50 px-4 py-2 rounded-full backdrop-blur-md">
+                <span id="current-index">1</span> / <span id="total-count">10</span>
+            </div>
+        </div>
+    </div>
 
     <!-- Contact Section -->
     <section id="contact" class="py-20 corgi-gradient relative overflow-hidden">
@@ -383,6 +349,72 @@
     <script>
         // Initialize Lucide Icons
         lucide.createIcons();
+
+        // Data for Albums
+        const albums = {
+            current: [
+                'IMG_5661.jpg', 'IMG_5254.jpg', 'IMG_5390.jpg', 
+                'IMG_5247.jpg', 'IMG_5598.jpg', 'IMG_5432.jpg', 
+                'IMG_5476.jpg'
+            ],
+            past: [
+                'IMG_5739.jpg', 'IMG_5564.jpg', 'IMG_5646.jpg', 
+                'IMG_5829.jpg', 'IMG_5731.jpg', 'IMG_6031.jpg', 
+                'IMG_5842.jpg'
+            ]
+        };
+
+        let currentAlbum = [];
+        let currentIndex = 0;
+        const modal = document.getElementById('carousel-modal');
+        const imgElement = document.getElementById('carousel-img');
+        const countElement = document.getElementById('current-index');
+        const totalElement = document.getElementById('total-count');
+
+        function openAlbum(albumName) {
+            currentAlbum = albums[albumName];
+            currentIndex = 0;
+            updateCarousel();
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            
+            // Add keyboard navigation
+            document.addEventListener('keydown', handleKeyNav);
+        }
+
+        function closeAlbum() {
+            modal.classList.add('hidden');
+            document.body.style.overflow = ''; // Restore scrolling
+            document.removeEventListener('keydown', handleKeyNav);
+        }
+
+        function updateCarousel() {
+            // Simple fade effect
+            imgElement.style.opacity = '0.5';
+            
+            setTimeout(() => {
+                imgElement.src = currentAlbum[currentIndex];
+                countElement.textContent = currentIndex + 1;
+                totalElement.textContent = currentAlbum.length;
+                imgElement.style.opacity = '1';
+            }, 150);
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % currentAlbum.length;
+            updateCarousel();
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + currentAlbum.length) % currentAlbum.length;
+            updateCarousel();
+        }
+
+        function handleKeyNav(e) {
+            if (e.key === 'Escape') closeAlbum();
+            if (e.key === 'ArrowRight') nextImage();
+            if (e.key === 'ArrowLeft') prevImage();
+        }
 
         // Mobile Menu Toggle
         const btn = document.getElementById('mobile-menu-btn');
